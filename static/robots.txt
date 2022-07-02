@@ -1,0 +1,2 @@
+User-agent : * 
+Sitemap: https://quizhub.web.app/sitemap.txt

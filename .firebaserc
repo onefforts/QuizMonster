@@ -1,0 +1,23 @@
+{
+  "projects": {
+    "default": "sangaku-dev",
+    "dev": "sangaku-dev",
+    "production": "sangaku-prod"
+  },
+  "targets": {
+    "sangaku-prod": {
+      "hosting": {
+        "deploy-target": [
+          "quizhub"
+        ]
+      }
+    },
+    "sangaku-dev": {
+      "hosting": {
+        "deploy-target": [
+          "dev-quizhub"
+        ]
+      }
+    }
+  }
+}

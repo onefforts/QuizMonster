@@ -1,0 +1,49 @@
+{
+  "name": "QuizMonster",
+  "version": "1.0.0",
+  "description": "クイズ好きのためのプラットフォーム!!",
+  "author": "AKira Saito",
+  "private": true,
+  "scripts": {
+    "dev": "HOST=0.0.0.0 nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "generate-prod": "DEPLOY_ENV=production nuxt generate"
+  },
+  "dependencies": {
+    "@firebase/app": "^0.5.4",
+    "@firebase/auth": "^0.13.5",
+    "@firebase/storage": "^0.3.30",
+    "@firebase/firestore": "^1.10.2",
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/markdownit": "^1.2.7",
+    "@nuxtjs/moment": "^1.6.0",
+    "@nuxtjs/pwa": "^2.6.0",
+    "@nuxtjs/toast": "^3.3.1",
+    "algoliasearch": "^4.2.0",
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.13.0",
+    "cross-env": "^5.2.0",
+    "firebase": "^7.8.2",
+    "firebase-tools": "^7.13.1",
+    "firebaseui": "^4.4.0",
+    "firebaseui-ja": "^1.0.0",
+    "lodash": "^4.17.21",
+    "markdown-it": "^10.0.0",
+    "markdown-it-katex": "git+https://github.com/envbest/markdown-it-katex",
+    "npm": "^8.5.0",
+    "nuxt": "^2.15.8",
+    "secure-random": "^1.1.2",
+    "uuid": "^8.0.0",
+    "vue-infinite-loading": "^2.4.5",
+    "vuex-persistedstate": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.10.4",
+    "gatsby-plugin-sass": "^2.3.22",
+    "node-sass": "^4.9.0",
+    "nodemon": "^1.18.9",
+    "sass-loader": "^8.0.2"
+  }
+}

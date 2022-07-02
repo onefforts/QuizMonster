@@ -1,0 +1,80 @@
+rules_version = '2'
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function getUserPath(userId){
+      return /databases/$(database)/documents/users/$(userId)
+    }
+
+    match /users/{id}{
+      // ユーザ情報はpublicなのでログインしなくても見れる
+      allow get
+      allow list, create: if request.auth != null
+      allow update: if request.auth != null && request.auth.uid == id
+    }
+
+    match /quizzes/{id}{
+      allow get, list
+      // 注意: pathの判定は シミュレータでは動かない
+      allow create: if request.auth != null && getUserPath(request.auth.uid) == request.resource.data.creatorRef
+      allow update: if request.auth != null && getUserPath(request.auth.uid) == request.resource.data.creatorRef
+        && getUserPath(request.auth.uid) == resource.data.creatorRef
+      allow delete: if request.auth != null && getUserPath(request.auth.uid) == resource.data.creatorRef
+
+      // allow create
+      // TODO: ぜんぜんよくわからない。うまく動かないのであとで確認する
+      // && getUserPath(request.auth.uid) == request.resource.data.creator
+    }
+
+    match /quizzes/{id}/comments/{commentId}{
+      allow get, list
+      allow create: if request.auth != null && getUserPath(request.auth.uid) == request.resource.data.creatorRef
+      allow update: if request.auth != null && getUserPath(request.auth.uid) == request.resource.data.creatorRef
+        && getUserPath(request.auth.uid) == resource.data.creatorRef
+      allow delete: if request.auth != null && getUserPath(request.auth.uid) == resource.data.creatorRef
+    }
+
+    match /quizzes/{id}/comments/{commentId}/actions/{actionId}{
+      allow get, list
+      allow create: if (request.auth != null && getUserPath(request.auth.uid) == request.resource.data.userRef)
+      allow update: if request.auth != null && getUserPath(request.auth.uid) == request.resource.data.userRef
+        && getUserPath(request.auth.uid) == resource.data.userRef
+      allow delete: if request.auth != null && getUserPath(request.auth.uid) == resource.data.userRef
+    }
+
+    match /quizzes/{id}/answers/{answerId}{
+      allow get, list
+      allow create: if request.auth != null && getUserPath(request.auth.uid) == request.resource.data.creatorRef
+      allow update: if request.auth != null && getUserPath(request.auth.uid) == request.resource.data.creatorRef
+        && getUserPath(request.auth.uid) == resource.data.creatorRef
+      allow delete: if request.auth != null && getUserPath(request.auth.uid) == resource.data.creatorRef
+    }
+    match /quizzes/{id}/answers/{anserId}/actions/{actionId}{
+      allow get, list
+      allow create: if (request.auth != null && getUserPath(request.auth.uid) == request.resource.data.userRef)
+      allow update: if request.auth != null && getUserPath(request.auth.uid) == request.resource.data.userRef
+        && getUserPath(request.auth.uid) == resource.data.userRef
+      allow delete: if request.auth != null && getUserPath(request.auth.uid) == resource.data.userRef
+    }
+
+    match /quizzes/{id}/surrenders/{surrenderId}{
+      allow get, list
+      allow create: if (request.auth != null && getUserPath(request.auth.uid) == request.resource.data.userRef)
+        || (request.auth == null && request.resource.data.tempUserId != null)
+      allow update: if request.auth != null && getUserPath(request.auth.uid) == request.resource.data.userRef
+        && getUserPath(request.auth.uid) == resource.data.userRef
+      allow delete: if request.auth != null && getUserPath(request.auth.uid) == resource.data.userRef
+    }
+
+    match /quizzes/{id}/actions/{actionId}{
+      allow get, list
+      allow create: if (request.auth != null && getUserPath(request.auth.uid) == request.resource.data.userRef)
+      allow update: if request.auth != null && getUserPath(request.auth.uid) == request.resource.data.userRef
+        && getUserPath(request.auth.uid) == resource.data.userRef
+      allow delete: if request.auth != null && getUserPath(request.auth.uid) == resource.data.userRef
+    }
+    match /private-profiles/{id}{
+      allow get, create, update: if request.auth != null && request.auth.uid == id
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "hosting": {
+    "target": "deploy-target",
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/sitemap.txt",
+        "function": "sitemap"
+      },
+      {
+        "source": "/quizzes/*",
+        "function": "quiz"
+      },
+      {
+        "source": "/users/*",
+        "function": "user"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [{
+      "source": "**/*.@(js|eot|otf|ttf|ttc|woff|font.css)",
+      "headers": [{
+        "key": "Cache-Control",
+	"value": "max-age=31536000"
+      }]
+    }] 
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "emulators": {
+    "functions": {
+      "port": 5001
+    },
+    "hosting": {
+      "port": 5000
+    }
+  }
+}

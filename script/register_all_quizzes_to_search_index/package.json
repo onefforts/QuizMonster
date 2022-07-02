@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "name": "register_all_quizzes_to_search_index",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@firebase/app": "^0.6.4",
+    "@firebase/firestore": "^1.14.5",
+    "algoliasearch": "^4.2.0"
+  }
+}
