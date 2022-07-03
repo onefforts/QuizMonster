@@ -27,6 +27,7 @@ https://mumbai.polygonscan.com/address/0x9555BCC9c05F597e80338E4776C1Ef05407BAC0
 ## 直面した課題
 - ブロックチェーンの必要必然性の議論の再燃
 - コントラクトのユニーク性の確保
+- 国や言語特有のQuizをどう扱っていくか
 
 ## Future works
 - 定期的なオンライン/オフラインイベント
