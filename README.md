@@ -1,8 +1,40 @@
-# sangaku
+# プロジェクト名: QuizMonster
 
-> My brilliant Nuxt.js project 
+## QuizMonsterについて
+Quizを投稿したり、回答することにより良質なNFTを発行できる新しいQuizプラットフォームです。
 
-## Build Setup
+ユニークで面白いQuizの作成を促進するとともに、回答しやすい環境を作ることにより
+人間の知的好奇心を満たし、より活性化することを目指しています。
+またNFTを導入することにより、良問/良回答が生まれることを加速しようと試みます。
+良問/良回答には他ユーザからのフィードバックが多くなり、閾値以上の良フィードバックを受けることがNFT化の条件になっており、NFT化された情報の良さを担保できると言う仮説を持っています。
+
+## 解決しようとしている課題
+- NFTの価値が非常に曖昧な状態で取引されている。
+  -> 何らかの形でNFTの価値を担保/明示化したい
+- 
+
+## 使用した技術
+- Nuxt.js(Webフレームワーク)
+- Versel(Hosting Pratform)
+- Firebase(認証、DB)
+- Algolia(SaaS型検索サービス)
+- HardHat(開発環境)
+- OpenZeppelin(Library)
+
+## スマートコントラクトのPolygonscanリンク
+https://mumbai.polygonscan.com/address/0x9555BCC9c05F597e80338E4776C1Ef05407BAC0A
+
+## 直面した課題
+- ブロックチェーンの必要必然性の議論の再燃
+- コントラクトのユニーク性の確保
+
+## Future works
+- 定期的なオンライン/オフラインイベント
+- 週次的なノルマミッション
+- キャラ育成機能(モンスター/人物キャラクター)
+- 現存のクイズサイトとコラボや協業関係相談
+
+# Build Setup Tutorial
 
 ``` bash
 # install dependencies
@@ -56,20 +88,3 @@ https://qiita.com/ryunishimura/items/3883953b982014b4b83e
 
 ### KaTeX
 https://katex.org/
-
-## 設計資料
-https://docs.google.com/spreadsheets/d/1ee8Mp2juRA0EsyZX75SBHKFuZTsNEbqNEuynMPmR8rk/edit#gid=0
-
-ワイヤー: https://xd.adobe.com/view/4b415e56-fb8f-4f70-4657-bf244a7352c9-3d70/
-PW:QuizMonster00
-
-## 外部ツール
-### Twitter
-```
-id: quizhub
-e-mail: toshiaki.nihei+quizhub@gmail.com
-password: quizhubpassword
-```
-
-
-# QuizMonster
